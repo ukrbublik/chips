@@ -1,0 +1,376 @@
+
+.ccs-wrap {
+	box-shadow: 0 1px rgb(158, 158, 158);
+    padding: 0 0 2px 3px;
+    vertical-align: middle;
+	cursor: text;
+    outline: none;
+}
+.ccs-wrap.focused {
+	box-shadow: 0 2px rgb(85, 139, 47);
+}
+.ccs-input-wrap {
+	height: 32px;
+	display: inline-block;
+	margin-bottom: 3px;
+}
+.ccs-input {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    outline: none;
+	min-width: 350px;
+}
+
+@media only screen and (max-width: 320px) {
+    .ccs-input {
+        min-width: auto;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 360px) {
+    .ccs-input {
+        min-width: 240px;
+    }
+}
+@media only screen and (min-width: 360px) {
+    .ccs-input {
+        min-width: 280px;
+    }
+}
+
+.ccs-input::-webkit-input-placeholder, 
+.ccs-input::-moz-placeholder, 
+.ccs-input::-ms-input-placeholder, 
+.ccs-input::-moz-placeholder {
+    font-size: 10pt;
+}
+
+.ccs-chips {
+	height: 32px;
+    display: inline-block;
+    height: auto;
+}
+.ccs-chip.chip {
+    outline: none;
+    cursor: default;
+	padding-left: 0;
+    background-color: #ff9800;
+    color: #FFFFFF;
+	margin-right: 5px;
+	margin-bottom: 3px;
+}
+.ccs-chip.selected {
+    background-color: #F1940C;
+}
+.ccs-chip.selected .ccs-chip-field {
+    background-color: #DA570F;
+}
+.ccs-chip-field {
+    border-radius: 12px;
+    padding: 0 10px;
+    background-color: #e65100;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 32px;
+    display: inline-block;
+}
+.ccs-chip-name {
+    padding: 0 0 0 10px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 32px;
+    display: inline-block;
+}
+.ccs-chip .material-icons {
+	margin-right: -4px;
+}
+
+.ccs-chip-field-type {
+}
+.ccs-chip-field-genre {
+}
+.ccs-chip-field-rating {
+}
+.ccs-chip-field-yearseason {
+}
+.ccs-chip-field-isAiring {
+}
+
+.ccs-sugges {
+	min-width: 120px;
+	overflow-y: auto;
+	z-index: 999;
+	position: absolute;
+	box-shadow: 0 2px 5px rgba(0,0,0,.5);
+	box-sizing: border-box;
+}
+.ccs-sugges .dropdown-content {
+	box-sizing: border-box;
+	position: static;
+	z-index: inherit;
+	min-width: none;
+    max-height: none;
+	overflow-y: visible;
+    overflow-x: visible;
+}
+.ccs-sugges .dropdown-content li {
+	list-style: none; 
+	box-sizing: border-box;
+    min-height: 40px;
+    padding: 0 30px 0 15px;
+	color: rgb(95,95,95);
+    font-size: 14px;
+    line-height: 40px;
+    height: 40px;
+    transition: background .15s linear;
+    margin: 0;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.ccs-sugges .dropdown-content li.ccs-sugg-type-divider {
+    height: 1px;
+    min-height: 1px;
+    background-color: #dddddd;
+}
+.ccs-sugg-disabled {
+    opacity: 0.5;
+}
+
+.ccs-sugg-type-field {
+    font-weight: bold;
+}
+.ccs-sugg-type-item {
+}
+.ccs-sugg-type-season {
+}
+.ccs-sugg-type-year {
+}
+.ccs-sugg-type-val {
+}
+.ccs-sugg-type-special {
+    font-style: italic;
+}
+
+.ccs-submit {
+    margin-top: 20px;
+}
+.ccs-add {
+    margin-top: 20px;
+}
+
+.modal.ccs-hint-dlg {
+border-radius: 5px;
+}
+.modal.modal-fixed-header .modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+	padding: 0;
+}
+.modal-header {
+	border-radius: 0 0 2px 2px;
+    background-color: #fafafa;
+    padding: 4px 6px;
+    width: 100%;
+}
+.modal-header nav {
+background-color: #619e35;
+}
+.modal-header nav .modal-close {
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.modal-header nav a.modal-close:hover {
+	color: #353535;
+}
+.modal-header nav .nav-title {
+    padding-left: 10px;
+}
+
+.ccs-hint-dlg .modal-header {
+    height: 46px;
+}
+.ccs-hint-dlg .modal-header nav {
+    height: 46px;
+    line-height: 46px;
+}
+.ccs-hint-dlg .modal-header nav .nav-wrapper i {
+    height: 46px;
+    line-height: 46px;
+}
+.ccs-hint-dlg.modal-fixed-header.modal-fixed-footer .modal-content {
+	height: calc(100% - 45px - 46px);
+	top: 46px;
+}
+.ccs-hint-dlg.modal .modal-footer {
+	height: 45px;
+}
+
+.ccs-hint-dlg.modal .modal-footer .btn-flat {
+	background-color: inherit;
+	margin: 0;
+}
+.modal .modal-footer .btn-flat.modal-close {
+	float: right;
+}
+.modal .modal-footer .btn-flat.modal-back {
+	float: left;
+}
+.modal .modal-content .collection a.collection-item {
+	color: rgb(95,95,95);
+}
+.modal .modal-content .collection {
+	margin: 0;
+}
+.ccs-hint-dlg.modal .modal-content {
+	padding: 0px;
+}
+
+body.mobile .ccs-hint-dlg.modal.modal-fixed-footer {
+	height: 90%;
+	max-height: 90%;
+	top: 5% !important;
+	/*margin-top: -10%; /* костыль, т.к. top жестко задан в 10% */
+}
+/*
+body.mobile .ccs-hint-dlg.modal .collection a.collection-item {
+}
+body.mobile .ccs-hint-dlg.modal .collection a.collection-item:not(.active):hover {
+	background-color: #fff;
+}
+body.mobile .ccs-hint-dlg.modal .collection a.collection-item:not(.active):active {
+	 background-color: #e0e0e0;
+}
+*/
+
+.ccs-genre-op {
+    margin-top: 20px;
+}
+.switch_label_before {
+	margin-right: 6px;
+}
+.switch_label_off, .switch_label_on {
+	font-size: 15px;
+}
+.switch_label_off.selected, .switch_label_on.selected {
+	color: rgba(0,0,0,0.87);
+}
+.ccs-genre-op .switch label input[type=checkbox]:checked + .lever {
+    background-color: #ff9800;
+}
+.ccs-genre-op .switch label input[type=checkbox]:checked + .lever:after {
+	background-color: #F7752E;
+}
+
+.ccs-container {
+	-webkit-user-select: none;       
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+
+.ccs-sugg .btn {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 6px;
+}
+.ccs-sugg .btn {
+    opacity: 0.3;
+}
+.ccs-sugg .btn.checked {
+    opacity: 1;
+}
+.ccs-sugg .btn:hover {
+    opacity: 0.7;
+}
+.ccs-sugg .btn.red {
+    background-color: #bd7671 !important;
+}
+.ccs-sugg .btn.red.checked {
+    background-color: #F44336 !important;
+}
+.ccs-sugg .btn.green {
+    background-color: #7bb17e !important;
+}
+.ccs-sugg .btn.green.checked {
+    background-color: #4CAF50 !important;
+}
+
+
+.ccs-sugg.valign-wrapper {
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+}
+.ccs-sugg.valign-wrapper .valign {
+    flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    -webkit-flex: 1 0 auto;
+
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+}
+.ccs-sugg .primary-content {
+   -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+}
+.ccs-sugg .secondary-content {    
+   -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+}
+
+.ccs-sugg .secondary-content > i.material-icons {
+    vertical-align: middle;
+}
+.ccs-sugg .secondary-content {
+    margin-left: 10px;
+}
+
+.ccs-sugges .dropdown-content li.has-secondary-content {
+    padding-right: 15px;
+    margin-right: 15px;
+}
+.dropdown-content li.ccs-sugg-disabled:hover,
+.dropdown-content li.has-yesno:hover {
+    background-color: transparent;
+}
+
+.ccs-hints.collection .collection-item.ccs-sugg:hover {
+    background-color: #e0e0e0;
+}
+.ccs-hints.collection .collection-item.ccs-sugg.ccs-sugg-disabled:hover,
+.ccs-hints.collection .collection-item.ccs-sugg.has-yesno:hover {
+    background-color: white;
+}
+.ccs-hints.collection .collection-item.ccs-sugg-type-divider {
+    height: 2px;
+    min-height: 2px;
+    background-color: #dddddd;
+    padding: 0;
+}
+
+.btn-floating.btn-small {
+    height: 24px;
+    width: 24px;
+}
+.btn-floating.btn-small i {
+    line-height: 24px;
+    font-size: 1.2em;
+}
+.ccs-wrap.ccs-sugges-hidden .ccs-back {
+    display: none !important;
+}

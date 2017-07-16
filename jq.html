@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="ru" prefix="og: http://ogp.me/ns#
+             video: http://ogp.me/ns/video#
+             ya: http://webmaster.yandex.ru/vocabularies/">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="language" content="ru">
+</head>
+
+<script type="text/javascript" src="vendor/Snowball.js"></script>
+<script type="text/javascript" src="lib/RuStemmer.js"></script>
+<script type="text/javascript" src="lib/RuUtils.js"></script>
+<script type="text/javascript" src="vendor/isMobile.js"></script>
+<script type="text/javascript" src="lib/utils.js"></script>
+<script type="text/javascript" src="lib/CatalogChipsSearchCore.js"></script>
+<script type="text/javascript" src="vendor/jquery.js"></script>
+<script type="text/javascript" src="lib/jquery.ba-throttle-debounce-mod.js"></script>
+<script type="text/javascript" src="lib/CatalogChipsSearchUI.js"></script>
+<script type="text/javascript" src="vendor/materialize.js"></script>
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="vendor/require.js"></script>
+
+<link rel="stylesheet" href="vendor/materialize.css" />
+<link rel="stylesheet" href="css/jq.css" />
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<script>
+    var site = {}; //global var
+
+    jQuery(function($) {
+        preloadRequires();
+        initCcsData((ccsData) => {
+            site.ccsData = ccsData;
+
+            $(document).ready( function() {
+                require(['lib/CatalogChipsSearchCore'], (ccsCore) => {
+                    initCatalogChipsSearch(ccsCore);
+                });
+            });
+        });
+    });
+</script>
+
+
+<html>
+    <div class='body-container'>
+        <div id='ccs' class='ccs-container'>
+            <div class='ccs-wrap'>
+                <div class='ccs-chips'>
+                    <!--
+                    <div tabindex='0' data-index=0 class="ccs-chip chip">
+                        <span class='ccs-chip-field ccs-chip-field-genre'>Жанр</sapn>
+                        <span class='ccs-chip-name'>Меха</span>
+                        <i class="material-icons">close</i>
+                    </div>
+                    -->
+
+                    <div class='ccs-input-wrap'>
+                        <a class="btn-floating btn-small grey ccs-back" style="display: none"><i class="material-icons">arrow_back</i></a>
+                        <input tabindex='0' type="search" class='ccs-input' placeholder="Нажмите для добавления фильтра"/>
+                    </div>
+                </div>
+
+                <div class='ccs-sugges'>
+                    <ul class='dropdown-content'>
+                        <!--
+                        <li data-index=0 class='ccs-sugg valign-wrapper ccs-sugg-type-field'><div class='valign'>Жанр</div></li>
+                        <li class="divider"></li>
+                        -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ccs-genre-op" style='display:none'>
+                <div class="switch">
+                    <span class='switch_label_before'>Аниме с жанрами:</span>
+                    <label>
+                        <span class='switch_label_off'>любые из списка</span>
+                        <input type="checkbox">
+                        <span class="lever"></span>
+                        <span class='switch_label_on'>все из списка</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="m-big-search-divider"></div>
+
+            <!--div class="m-select-view right">
+                <span class="m-select-view__label">Сменить вид:</span>
+                <a class="m-select-view__posters tooltipped no-dynpage active" data-tooltip="Краткий (постеры)" onclick="dynChangeUrlManually(document.location + (document.location.href.indexOf(&quot;?&quot;) == -1 ? &quot;?&quot; : &quot;&amp;&quot;) + &quot;view=posters&quot;); return false;" href="/anime/view/posters"><i class="material-icons">view_module</i></a><a class="m-select-view__big-list tooltipped no-dynpage" data-tooltip="Подробный (с описаниями)" onclick="dynChangeUrlManually(document.location + (document.location.href.indexOf(&quot;?&quot;) == -1 ? &quot;?&quot; : &quot;&amp;&quot;) + &quot;view=big-list&quot;); return false;" href="/anime/view/big-list"><i class="material-icons">view_list</i></a>        
+            </div-->
+
+            <button class="ccs-add green darken-4 white-text waves-effect waves-light btn-large">
+                Добавить фильтр
+            </button>
+
+            <div class="ccs-hint-dlg modal modal-fixed-footer modal-fixed-header" style='display: none'>
+                <div class="modal-header">
+                    <nav>
+                        <div class="nav-wrapper">
+                            <span class='nav-title'>Добавьте фильтр</span>
+                            <a href="#!" onclick='return false' class="right modal-close"><i class="material-icons">close</i></a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="modal-content">
+                    <div class="ccs-hints collection">
+                        <!--
+                        <a href="#!" class="ccs-hint collection-item" ccs-sugg-type-field data-index=0 >111</a>
+                        -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-action modal-back waves-effect waves-teal btn-flat">Назад</button>
+                    <button class="modal-action modal-close waves-effect waves-red btn-flat">Закрыть</button>
+                </div>
+            </div>
+
+            <!--button type="submit" class="ccs-submit green darken-4 white-text waves-effect waves-light btn-large">
+                <i class="material-icons right">search</i>Найти
+            </button-->
+        </div>
+    </div>
+
+</html>

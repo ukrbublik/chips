@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru" prefix="og: http://ogp.me/ns#
+             video: http://ogp.me/ns/video#
+             ya: http://webmaster.yandex.ru/vocabularies/">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="language" content="ru">
+</head>
+
+<script type="text/javascript" src="vendor/Snowball.js"></script>
+<script type="text/javascript" src="lib/RuStemmer.js"></script>
+<script type="text/javascript" src="lib/RuUtils.js"></script>
+<script type="text/javascript" src="vendor/isMobile.js"></script>
+<script type="text/javascript" src="lib/utils.js"></script>
+<script type="text/javascript" src="lib/CatalogChipsSearchCore.js"></script>
+<script type="text/javascript" src="vendor/jquery.js"></script>
+<script type="text/javascript" src="lib/jquery.ba-throttle-debounce-mod.js"></script>
+<script type="text/javascript" src="lib/CatalogChipsSearchUI.js"></script>
+<script type="text/javascript" src="vendor/materialize.js"></script>
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="vendor/require.js"></script>
+<script type="text/javascript" src="vendor/angular.js"></script>
+<script type="text/javascript" src="vendor/angular-animate.js"></script>
+<script type="text/javascript" src="vendor/angular-messages.js"></script>
+<script type="text/javascript" src="vendor/angular-aria.js"></script>
+<script type="text/javascript" src="vendor/angular-material-1.1.0-rc4-mod.js"></script>
+<script type="text/javascript" src="app/ang.js"></script>
+
+<link rel="stylesheet" href="vendor/angular-material-1.1.0-rc4.css" />
+<link rel="stylesheet" href="css/an.css" />
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<script>
+    var site = {
+        useAngularVersion: true
+    }; //global var
+
+    jQuery(function($) {
+        preloadRequires();
+        initCcsData((ccsData) => {
+            site.ccsData = ccsData;
+
+            $(document).ready( function() {
+                require(['lib/CatalogChipsSearchCore'], (ccsCore) => {
+                    initCatalogChipsSearch(ccsCore);
+                });
+            });
+        });
+    });
+</script>
+
+
+<html>
+    <div class='body-container'>
+        <div ng-controller="CatalogChipsSearchCtrl as ctrl" ng-class="ctrl._inited ? 'md-inited' : ''" class="m-chips-search md-hide-until-init">
+            <md-chips
+                class="schips-chips"
+                ng-model="ctrl.parsedChips"
+                md-transform-chip="ctrl.transformChip($chip)"
+                md-on-remove="ctrl.onChipRemove($chip, $index)"
+                md-on-add="ctrl.onChipAdd($chip, $index)"
+                __md-require-match="true"
+                >
+                <md-autocomplete
+                    class="schips-autocomplete"
+                    placeholder="Нажмите для добавления фильтра"
+                    md-search-text="ctrl.searchText"
+                    md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                    md-items="item in ctrl.suggest(ctrl.searchText)"
+                    ng-init="ctrl.init(this)"
+                    md-min-length="0"
+                    md-no-cache="true"
+                    md-trim="false"
+                    md-blurable="true"
+                    md-can-scroll-around="false"
+                    __md-item-text="item.name"
+                    __md-autoselect="false"
+                    __md-select-on-match="false"
+                    __md-require-match="true"
+                    >
+                    <md-item-template>
+                        <md-button ng-if="ctrl.isMobile" class="md-autocomplete-item schips-sugg-item-{{item.what}}">
+                            {{item.name}}
+                        </md-button>
+                        <span ng-if="!ctrl.isMobile" class="md-autocomplete-item schips-sugg-item-{{item.what}}">
+                            {{item.name}}
+                        </span>
+                    </md-item-template>
+                </md-autocomplete>
+                <md-chip-template>
+                    <span>
+                        <span class='schips-chip-field schips-chip-field-{{$chip.field}}'>{{$chip.fieldName}}</span> 
+                        <span class='schips-chip-name'>{{$chip.name}}</span>
+                    </span>
+                </md-chip-template>
+            </md-chips>
+
+
+            <div class="select-genre-op" ng-show="ctrl.genreChipsCnt >= 2">
+                <md-switch ng-model="ctrl.genreOp" aria-label="" ng-true-value="'and'" ng-false-value="'or'" ng-change="ctrl.onGenreOpChange()">
+                    Аниме с жанрами: {{ctrl.genreOp == 'and' ? 'все из списка' : 'любые из списка'}}
+                </md-switch>
+            </div>
+
+            <div class="m-big-search-divider"></div>
+
+            <button ng-if="ctrl.showAddBtn" ng-click="ctrl.openSuggesDlg($event)" class="m-chips-search__add green darken-4 white-text waves-effect waves-light btn-large">
+                Добавить фильтр
+            </button>
+
+        </div>
+    </div>
+</html>

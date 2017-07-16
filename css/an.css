@@ -1,0 +1,177 @@
+
+.md-hide-until-init {
+    visibility: hidden;
+}
+
+.md-hide-until-init.md-inited {
+    visibility: visible;
+}
+
+.schips-autocomplete {
+    min-width: 350px;
+}
+
+
+@media only screen and (max-width: 460px) {
+    .schips-autocomplete {
+        min-width: 280px;
+    }
+}
+
+.schips-autocomplete input::-webkit-input-placeholder {
+    font-size: 10pt;
+}
+
+.schips-autocomplete input::-moz-placeholder {
+    font-size: 10pt;
+}
+
+.schips-autocomplete input::-ms-input-placeholder {
+    font-size: 10px;
+}
+
+.schips-autocomplete input::-moz-placeholder {
+    font-size: 10pt;
+}
+
+md-autocomplete.schips-autocomplete input[type=search] {
+    border-bottom: none;
+    height: inherit;
+    margin: inherit;
+    padding: inherit;
+}
+
+md-autocomplete.schips-autocomplete input[type=search]:focus:not([readonly]) {
+    border-bottom: inherit;
+    box-shadow: inherit;
+}
+
+md-chips.schips-chips md-chip {
+    padding-left: 0;
+}
+
+.schips-chip-field {
+    background-color: #C5C5C5;
+    float: left;
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: 0 5px;
+}
+
+/*.schips-chip-field-type {
+    background-color: Bisque;
+}
+
+.schips-chip-field-genre {
+    background-color: LightGreen;
+}
+
+.schips-chip-field-rating {
+    background-color: LightSteelBlue;
+}
+
+.schips-chip-field-yearseason {
+    background-color: LightCyan;
+}
+
+.schips-chip-field-isAiring {
+    background-color: LightSalmon;
+}*/
+
+.m-chips-search md-chips md-chip {
+    background-color: #ff9800;
+    color: #FFFFFF;
+}
+
+.m-chips-search .schips-chip-field {
+    background-color: #e65100;
+    color: #FFFFFF;
+    padding: 0 10px;
+    margin-right: 10px;
+}
+
+.m-chips-search .md-chips:not(.md-readonly) md-chip:not(.md-readonly) {
+    padding-right: 26px;
+}
+
+.m-chips-search .md-chips md-chip ._md-chip-remove md-icon {
+    color: #ffd180;
+}
+
+.schips-chips ._md-chip-remove md-icon {
+    z-index: 51;
+}
+
+.select-genre-op {
+    margin-top: 20px;
+}
+
+.select-genre-op md-switch {
+    margin: 0;
+}
+
+.m-chips-search__submit {
+    margin-top: 20px;
+}
+.m-chips-search__add {
+    margin-top: 20px;
+}
+
+.m-chips-search {
+    height: 122px;
+}
+.m-chips-search.md-inited {
+    height: auto;
+}
+
+@media only screen and (min-width: 320px) {
+    .md-button:not([disabled]):hover {
+        background-color: inherit;
+    }
+}
+
+.md-autocomplete-suggestions li:hover {
+    background-color: inherit;
+}
+.md-autocomplete-suggestions li span.md-autocomplete-item:hover {
+    background-color: rgb(238, 238, 238);
+    transition: background 0.15s linear;
+}
+
+.md-virtual-repeat-scroller .md-autocomplete-suggestions li {
+    padding: 0;
+    overflow:visible;
+}
+
+.md-autocomplete-suggestions li .md-autocomplete-item {
+    padding: 0 15px;
+    margin: 0;
+    display: block;
+}
+.md-autocomplete-suggestions li .md-button {
+    border-radius: 0;
+    font-weight: inherit;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    white-space: normal;
+    text-transform: none;
+    align-items: inherit;
+}
+
+.md-autocomplete-suggestions li .schips-sugg-item-field {
+    font-weight: bold;
+}
+.md-autocomplete-suggestions li .schips-sugg-item-item {
+}
+.md-autocomplete-suggestions li .schips-sugg-item-season {
+}
+.md-autocomplete-suggestions li .schips-sugg-item-year {
+}
+.md-autocomplete-suggestions li .schips-sugg-item-val {
+}
+.md-autocomplete-suggestions li .schips-sugg-item-special {
+    font-style: italic;
+}
