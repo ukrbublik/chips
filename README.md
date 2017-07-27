@@ -1,4 +1,6 @@
 # chips
 Catalog search with autocomplete &amp; chips
 
-http://ukrbublik.github.io/chips
+Demo: http://ukrbublik.github.io/chips
+
+Made for http://smotret-anime.ru
